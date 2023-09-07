@@ -49,4 +49,4 @@ jobs:
         - name: Execute remote commands
           run: |
             ssh ${{ secrets.WAS_USER }}@${{ secrets.WAS_IP }} -p ${{ secrets.WAS_PORT }} "sudo fuser -k 8080/tcp"
-            ssh ${{ secrets.WAS_USER }}@${{ secrets.WAS_IP }} -p ${{ secrets.WAS_PORT }} "sudo nohup java -jar ~/cicd/demo-0.0.1-SNAPSHOT.jar 1>nohub/stdout.txt 2>nohub/sterr.txt &"
+            ssh ${{ secrets.WAS_USER }}@${{ secrets.WAS_IP }} -p ${{ secrets.WAS_PORT }} "sudo nohup java -jar ~/cicd/demo-0.0.1-SNAPSHOT.jar >>~/log.txt &"
