@@ -48,5 +48,4 @@ jobs:
           run: scp -P ${{secrets.WAS_PORT}} *.jar ${{secrets.WAS_USER}}@${{secrets.WAS_IP}}:~/cicd/
         - name: Execute remote commands
           run: |
-            ssh ${{ secrets.WAS_USER }}@${{ secrets.WAS_IP }} -p ${{ secrets.WAS_PORT }} "sudo fuser -k 8080/tcp"
-            ssh ${{ secrets.WAS_USER }}@${{ secrets.WAS_IP }} -p ${{ secrets.WAS_PORT }} "sudo java -jar ~/cicd/demo-0.0.1-SNAPSHOT.jar &"
+            ssh ${{ secrets.WAS_USER }}@${{ secrets.WAS_IP }} -p ${{ secrets.WAS_PORT }} "sudo ./start.sh"
